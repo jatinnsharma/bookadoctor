@@ -33,6 +33,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/u
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { BackButton } from "@/components/BackButton"
 
 export default function PrescriptionsPage() {
   const [selectedPrescription, setSelectedPrescription] = useState<any | null>(null)
@@ -223,10 +224,8 @@ export default function PrescriptionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+              <BackButton />
+
               <h1 className="text-xl font-semibold text-gray-900">Prescriptions</h1>
             </div>
             <div className="flex items-center space-x-3">
@@ -485,19 +484,17 @@ export default function PrescriptionsPage() {
                       onClick={() => setSelectedPrescription(prescription)}
                     >
                       <Card
-                        className={`shadow-lg border-0 hover:shadow-xl transition-shadow ${
-                          prescription.status === "completed" ? "opacity-75" : ""
-                        }`}
+                        className={`shadow-lg border-0 hover:shadow-xl transition-shadow ${prescription.status === "completed" ? "opacity-75" : ""
+                          }`}
                       >
                         <CardHeader>
                           <div className="flex items-start justify-between">
                             <div className="flex items-center space-x-3">
                               <div
-                                className={`w-12 h-12 rounded-lg flex items-center justify-center ${
-                                  prescription.status === "active"
+                                className={`w-12 h-12 rounded-lg flex items-center justify-center ${prescription.status === "active"
                                     ? "bg-gradient-to-br from-blue-500 to-purple-600"
                                     : "bg-gray-400"
-                                }`}
+                                  }`}
                               >
                                 <Pill className="w-6 h-6 text-white" />
                               </div>
@@ -908,9 +905,8 @@ export default function PrescriptionsPage() {
                             {[...Array(5)].map((_, i) => (
                               <span
                                 key={i}
-                                className={`text-xs ${
-                                  i < Math.floor(pharmacy.rating) ? "text-yellow-400" : "text-gray-300"
-                                }`}
+                                className={`text-xs ${i < Math.floor(pharmacy.rating) ? "text-yellow-400" : "text-gray-300"
+                                  }`}
                               >
                                 ★
                               </span>

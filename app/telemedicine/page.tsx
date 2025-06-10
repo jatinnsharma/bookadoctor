@@ -43,6 +43,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Slider } from "@/components/ui/slider"
+import { BackButton } from "@/components/BackButton"
 
 export default function TelemedicinePage() {
   const [isMuted, setIsMuted] = useState(false)
@@ -190,10 +191,8 @@ export default function TelemedicinePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+                            <BackButton />
+              
               <h1 className="text-xl font-semibold text-gray-900">Telemedicine Consultation</h1>
             </div>
             <div className="flex items-center space-x-2">

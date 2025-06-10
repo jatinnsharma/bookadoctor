@@ -26,6 +26,7 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { BackButton } from "@/components/BackButton"
 
 export default function HealthRecordsPage() {
   const [expandedSection, setExpandedSection] = useState<string | null>("vitals")
@@ -301,10 +302,8 @@ export default function HealthRecordsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+              <BackButton />
+
               <h1 className="text-xl font-semibold text-gray-900">Health Records</h1>
             </div>
             <div className="flex items-center space-x-3">

@@ -31,6 +31,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { BackButton } from "@/components/BackButton"
 
 export default function BookAppointmentDetailed() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -962,10 +963,7 @@ export default function BookAppointmentDetailed() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+              <BackButton />
               <h1 className="text-xl font-semibold text-gray-900">Book Detailed Appointment</h1>
             </div>
             <div className="text-sm text-gray-600">

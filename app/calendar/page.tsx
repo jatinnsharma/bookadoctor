@@ -25,6 +25,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 import { Separator } from "@/components/ui/separator"
 import { Label } from "@/components/ui/label"
+import { BackButton } from "@/components/BackButton"
 
 export default function CalendarPage() {
   const [currentDate, setCurrentDate] = useState(new Date())
@@ -157,10 +158,8 @@ export default function CalendarPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+              <BackButton />
+
               <h1 className="text-xl font-semibold text-gray-900">Appointment Calendar</h1>
             </div>
             <div className="flex items-center space-x-3">
@@ -240,22 +239,20 @@ export default function CalendarPage() {
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => handleDateClick(day.date)}
-                        className={`relative p-2 rounded-full text-sm ${
-                          !day.isCurrentMonth
+                        className={`relative p-2 rounded-full text-sm ${!day.isCurrentMonth
                             ? "text-gray-400"
                             : isSelected
                               ? "bg-blue-600 text-white"
                               : isToday
                                 ? "bg-blue-100 text-blue-600 font-semibold"
                                 : "text-gray-900 hover:bg-gray-100"
-                        }`}
+                          }`}
                       >
                         {day.date.getDate()}
                         {hasAppointment && day.isCurrentMonth && (
                           <span
-                            className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${
-                              isSelected ? "bg-white" : "bg-blue-600"
-                            }`}
+                            className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1 h-1 rounded-full ${isSelected ? "bg-white" : "bg-blue-600"
+                              }`}
                           />
                         )}
                       </motion.button>
@@ -433,16 +430,14 @@ export default function CalendarPage() {
                       return (
                         <div
                           key={index}
-                          className={`min-h-[100px] bg-white p-2 cursor-pointer hover:bg-gray-50 ${
-                            !day.isCurrentMonth ? "bg-gray-50" : ""
-                          } ${isToday ? "ring-2 ring-blue-500 ring-inset" : ""}`}
+                          className={`min-h-[100px] bg-white p-2 cursor-pointer hover:bg-gray-50 ${!day.isCurrentMonth ? "bg-gray-50" : ""
+                            } ${isToday ? "ring-2 ring-blue-500 ring-inset" : ""}`}
                           onClick={() => handleDateClick(day.date)}
                         >
                           <div className="flex justify-between items-center mb-1">
                             <span
-                              className={`text-sm font-medium ${
-                                !day.isCurrentMonth ? "text-gray-400" : isToday ? "text-blue-600" : "text-gray-900"
-                              }`}
+                              className={`text-sm font-medium ${!day.isCurrentMonth ? "text-gray-400" : isToday ? "text-blue-600" : "text-gray-900"
+                                }`}
                             >
                               {day.date.getDate()}
                             </span>
@@ -453,11 +448,10 @@ export default function CalendarPage() {
                               <motion.div
                                 key={appointment.id}
                                 whileHover={{ scale: 1.02 }}
-                                className={`text-xs p-1 rounded truncate cursor-pointer ${
-                                  appointment.type === "video"
+                                className={`text-xs p-1 rounded truncate cursor-pointer ${appointment.type === "video"
                                     ? "bg-purple-100 text-purple-700"
                                     : "bg-blue-100 text-blue-700"
-                                }`}
+                                  }`}
                                 onClick={(e) => {
                                   e.stopPropagation()
                                   handleAppointmentClick(appointment)

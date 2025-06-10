@@ -28,6 +28,7 @@ import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { Separator } from "@/components/ui/separator"
 import { Toggle } from "@/components/ui/toggle"
+import { BackButton } from "@/components/BackButton"
 
 export default function ExploreDoctors() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid")
@@ -252,10 +253,8 @@ export default function ExploreDoctors() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+              <BackButton />
+
               <h1 className="text-2xl font-bold text-gray-900">Explore Doctors</h1>
             </div>
 

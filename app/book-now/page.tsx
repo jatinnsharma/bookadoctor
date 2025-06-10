@@ -22,6 +22,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
+import { BackButton } from "@/components/BackButton"
 
 export default function BookNow() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -458,10 +459,7 @@ export default function BookNow() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="w-4 h-4 mr-2" />
-                Back
-              </Button>
+                <BackButton />   
               <h1 className="text-xl font-semibold text-gray-900">Book Appointment</h1>
             </div>
           </div>
