@@ -30,8 +30,12 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
 import { Separator } from "@/components/ui/separator"
+import { useParams } from "next/navigation"
 
-export default function DoctorProfile({ params }: { params: { id: string } }) {
+export default function DoctorProfile() {
+
+const params =  useParams()
+
   const [isLiked, setIsLiked] = useState(false)
   const [expandedSection, setExpandedSection] = useState<string | null>("about")
 

@@ -128,7 +128,10 @@ export default function BookNow() {
 
             <div className="grid gap-4">
               {services.map((service) => (
-                <Card key={service.id} className="cursor-pointer hover:shadow-md transition-shadow">
+                <Card
+                  key={service.id}
+                  className="cursor-pointer hover:shadow-md transition-shadow bg-white border border-gray-200"
+                >
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
@@ -152,25 +155,25 @@ export default function BookNow() {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold">Consultation Type</h3>
+              <h3 className="text-lg font-semibold text-gray-900">Consultation Type</h3>
               <RadioGroup value={consultationType} onValueChange={setConsultationType}>
-                <div className="flex items-center space-x-2 p-4 border rounded-lg">
+                <div className="flex items-center space-x-2 p-4 border border-gray-200 rounded-lg bg-white hover:bg-gray-50">
                   <RadioGroupItem value="in-person" id="in-person" />
-                  <Label htmlFor="in-person" className="flex items-center cursor-pointer">
+                  <Label htmlFor="in-person" className="flex items-center cursor-pointer text-gray-900">
                     <MapPin className="w-4 h-4 mr-2" />
                     In-Person Visit
                   </Label>
                 </div>
-                <div className="flex items-center space-x-2 p-4 border rounded-lg">
+                <div className="flex items-center space-x-2 p-4 border border-gray-200 rounded-lg bg-white hover:bg-gray-50">
                   <RadioGroupItem value="video" id="video" />
-                  <Label htmlFor="video" className="flex items-center cursor-pointer">
+                  <Label htmlFor="video" className="flex items-center cursor-pointer text-gray-900">
                     <Video className="w-4 h-4 mr-2" />
                     Video Consultation
                   </Label>
                 </div>
-                <div className="flex items-center space-x-2 p-4 border rounded-lg">
+                <div className="flex items-center space-x-2 p-4 border border-gray-200 rounded-lg bg-white hover:bg-gray-50">
                   <RadioGroupItem value="phone" id="phone" />
-                  <Label htmlFor="phone" className="flex items-center cursor-pointer">
+                  <Label htmlFor="phone" className="flex items-center cursor-pointer text-gray-900">
                     <Phone className="w-4 h-4 mr-2" />
                     Phone Consultation
                   </Label>
@@ -513,8 +516,8 @@ export default function BookNow() {
         <StepIndicator />
 
         {/* Step Content */}
-        <Card className="shadow-lg border-0">
-          <CardContent className="p-8">{renderStepContent()}</CardContent>
+        <Card className="shadow-lg border-0 bg-white">
+          <CardContent className="p-8 bg-white">{renderStepContent()}</CardContent>
         </Card>
 
         {/* Navigation Buttons */}

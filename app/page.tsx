@@ -27,6 +27,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { useLanguage } from "@/hooks/use-language"
+import Link from "next/link"
 
 export default function DoctorAppointmentLanding() {
   const { t, isRTL } = useLanguage()
@@ -42,7 +43,7 @@ export default function DoctorAppointmentLanding() {
       rating: 4.9,
       reviews: 127,
       experience: "15 years",
-      image: "/placeholder.svg?height=120&width=120",
+      image: "0e31d549-a287-452c-bbe1-270760ff4937.jpeg?height=120&width=120",
       available: "Today",
       fee: "$150",
     },
@@ -53,7 +54,7 @@ export default function DoctorAppointmentLanding() {
       rating: 4.8,
       reviews: 89,
       experience: "12 years",
-      image: "/placeholder.svg?height=120&width=120",
+      image: "fef903c1-1ec6-44cf-a8f2-4717a75466b2.jpeg?height=120&width=120",
       available: "Tomorrow",
       fee: "$120",
     },
@@ -64,7 +65,7 @@ export default function DoctorAppointmentLanding() {
       rating: 4.9,
       reviews: 156,
       experience: "18 years",
-      image: "/placeholder.svg?height=120&width=120",
+      image: "aa4969cd-78d1-49fa-8221-6bce9c028fb2.jpeg?height=120&width=120",
       available: "Today",
       fee: "$100",
     },
@@ -115,7 +116,7 @@ export default function DoctorAppointmentLanding() {
                 <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-white" />
                 </div>
-                <span className="ml-2 text-xl font-bold text-gray-900">MediBook</span>
+                <span className="ml-2 text-xl font-bold text-gray-900">BookaDoctor</span>
               </div>
             </div>
 
@@ -223,13 +224,26 @@ export default function DoctorAppointmentLanding() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="text-lg px-8 py-3">
-                  {t("hero.bookNow")}
-                  <ArrowRight className={`w-5 h-5 ${isRTL ? "mr-2 rotate-180" : "ml-2"}`} />
-                </Button>
-                <Button variant="outline" size="lg" className="text-lg px-8 py-3">
-                  {t("hero.exploreDoctors")}
-                </Button>
+                <Link
+                  href="/book-now"
+                  className={`flex items-center justify-center bg-blue-600 text-white rounded-lg shadow-lg hover:bg-blue-700 transition-colors duration-300 ${isRTL ? "flex-row-reverse" : ""}`}
+                >
+                  <Button size="lg" className="text-lg px-8 py-3">
+                    {t("hero.bookNow")}
+                    <ArrowRight className={`w-5 h-5 ${isRTL ? "mr-2 rotate-180" : "ml-2"}`} />
+                  </Button>
+                </Link>
+
+                <Link
+                  href="/explore-doctors"
+                  className={`flex items-center justify-center bg-white border border-gray-300 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 ${isRTL ? "flex-row-reverse" : ""}`}
+                >
+
+                  <Button variant="outline" size="lg" className="text-lg px-8 py-3">
+                    {t("hero.exploreDoctors")}
+                  </Button>
+
+                </Link>
               </div>
 
               <div className={`flex items-center space-x-8 text-sm text-gray-600 ${isRTL ? "space-x-reverse" : ""}`}>
@@ -252,7 +266,7 @@ export default function DoctorAppointmentLanding() {
             >
               <div className="relative z-10">
                 <img
-                  src="/placeholder.svg?height=500&width=600"
+                  src="generate-girl-doctor.jpg"
                   alt="Doctor consultation"
                   className="rounded-2xl shadow-2xl"
                 />
@@ -273,7 +287,7 @@ export default function DoctorAppointmentLanding() {
             transition={{ duration: 0.6 }}
             className="bg-white rounded-2xl shadow-lg border p-8"
           >
-            <h2 className="text-2xl font-bold text-center mb-8">{t("search.findPerfectDoctor")}</h2>
+            <h2 className="text-2xl text-black font-bold text-center mb-8">{t("search.findPerfectDoctor")}</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               <div className="space-y-2">
@@ -383,7 +397,12 @@ export default function DoctorAppointmentLanding() {
                       <span className="font-semibold text-lg">{doctor.fee}</span>
                     </div>
 
-                    <Button className="w-full">{t("doctors.bookAppointment")}</Button>
+                    <Link
+                      href={`/doctor-profile/${doctor.id}`}
+                      className={`w-full text-center ${isRTL ? "text-right" : "text-left"}`}
+                    >
+                      <Button className="w-full">{t("doctors.bookAppointment")}</Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -518,7 +537,7 @@ export default function DoctorAppointmentLanding() {
                 <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                   <Calendar className="w-5 h-5 text-white" />
                 </div>
-                <span className={`text-xl font-bold ${isRTL ? "mr-2" : "ml-2"}`}>MediBook</span>
+                <span className={`text-xl font-bold ${isRTL ? "mr-2" : "ml-2"}`}>BookaDoctor</span>
               </div>
               <p className="text-gray-400">{t("footer.description")}</p>
             </div>
